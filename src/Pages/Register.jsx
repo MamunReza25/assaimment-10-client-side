@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../ContextApi/AuthContext';
+import { NavLink } from 'react-router';
 
 
 
@@ -42,7 +43,7 @@ const Register = () => {
 
     return (
 
-        <div className='card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-20'>
+        <div className='card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-10'>
             <div className="card-body ">
                 <h1 className="text-3xl font-bold text-center">Register</h1>
                 <form onSubmit={handleRegisterSubmit}>
@@ -83,12 +84,18 @@ const Register = () => {
                         <button className="btn text-white mt-4 rounded-full bg-primary">
                             Register
                         </button>
+                        <p className="text-center">
+                            Already have an account?
+                            <NavLink className="text-blue-500 hover:text-blue-800" to={'/loginpage'}>
+                                Login
+                            </NavLink>
+                        </p>
                     </fieldset>
                 </form>
 
             </div>
 
-        </div>
+        </div >
 
     );
 };

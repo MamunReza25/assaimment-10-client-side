@@ -1,10 +1,11 @@
 import React, { use } from 'react';
 import { Navigate, NavLink } from 'react-router';
 import { AuthContext } from '../ContextApi/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, Logout } = use(AuthContext);
-
+    console.log(user)
     const handleLogout = () => {
         // logout
         Logout()
@@ -31,13 +32,16 @@ const Navbar = () => {
                         <NavLink to={'/'}>Home</NavLink>
                         <NavLink to={'/course'}>Courses</NavLink>
                         {!user && <NavLink to="/loginpage">Login</NavLink>}
+                        {user && <NavLink to="/dashboard">DeshBoard</NavLink>}
+
                         <div>
+
                             {user && (<div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <img
                                             alt="Tailwind CSS Navbar component"
-                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                            src={user?.photoURL} />
                                     </div>
                                 </div>
                                 <ul

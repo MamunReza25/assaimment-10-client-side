@@ -6,6 +6,11 @@ import Home from '../Pages/Home';
 import Course from '../Pages/Course';
 import Register from '../Pages/Register';
 import Loginpage from '../Pages/Loginpage';
+import PrivetRoutes from './PrivetRoutes';
+import AddCourse from '../Pages/AddCourse';
+import MyAddedCourse from '../Pages/MyAddedCourse';
+import MyEnrolledcourse from '../Pages/MyEnrolledcourse';
+import DeshBorad from '../Pages/DeshBorad';
 
 
 export const router = createBrowserRouter([
@@ -31,6 +36,41 @@ export const router = createBrowserRouter([
                 element: <Loginpage></Loginpage>,
             },
 
+
+
+            // dashboard layout
+            {
+                path: '/dashboard',
+                element: (
+                    <PrivetRoutes>
+                        <DeshBorad></DeshBorad>
+                    </PrivetRoutes>
+                ),
+                children: [
+
+                    {
+                        path: 'my-enrolled-course',
+                        element: <MyEnrolledcourse></MyEnrolledcourse>,
+
+                    },
+
+                    {
+                        path: 'my-added-course',
+                        element: <MyAddedCourse></MyAddedCourse>,
+                    },
+                    {
+                        path: 'add-course',
+                        element: <AddCourse></AddCourse>,
+                    },
+
+                ]
+
+            },
         ]
+
+
+
     },
+
+
 ]);
