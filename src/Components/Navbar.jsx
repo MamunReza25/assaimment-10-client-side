@@ -1,9 +1,24 @@
 import React, { use } from 'react';
-import { NavLink } from 'react-router';
+import { Navigate, NavLink } from 'react-router';
 import { AuthContext } from '../ContextApi/AuthContext';
 
 const Navbar = () => {
-    const { user } = use(AuthContext);
+    const { user, Logout } = use(AuthContext);
+
+    const handleLogout = () => {
+        // logout
+        Logout()
+            .then(result => {
+
+
+                toast.success("logout succes")
+                return <Navigate to={'/'}></Navigate>
+
+            })
+            .catch(error => {
+                toast(error.message)
+            })
+    }
     return (
         <div>
             <header className='w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 flex justify-between items-center'>
@@ -35,7 +50,7 @@ const Navbar = () => {
                                         </a>
                                     </li>
                                     <li><a>Settings</a></li>
-                                    <li><a>Logout</a></li>
+                                    <NavLink to={'/'}> <li type="submit" onClick={handleLogout} >Logout</li></NavLink>
                                 </ul>
                             </div>)
 
