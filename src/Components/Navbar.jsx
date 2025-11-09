@@ -1,20 +1,60 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../ContextApi/AuthContext';
 
 const Navbar = () => {
+    const { user } = use(AuthContext);
     return (
         <div>
             <header className='w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 flex justify-between items-center'>
-                <h1>LearnHub</h1>
-                <nav>
-                    <NavLink to={'/'}>Home</NavLink>
-                    <NavLink to={'/course'}>Courses</NavLink>
-                    <NavLink to={'/register'}>Register</NavLink>
-                    <NavLink to={'/loginpage'}>Login</NavLink>
-                </nav>
-            </header>
-        </div>
+                <div className="navbar">
+                    <div className="flex-1">
+                        <a className="btn btn-ghost text-xl">LearnHub</a>
+                    </div>
+                    <div className="flex gap-2">
+                        {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
+                        <NavLink to={'/'}>Home</NavLink>
+                        <NavLink to={'/course'}>Courses</NavLink>
+                        {!user && <NavLink to="/loginpage">Login</NavLink>}
+                        <div>
+                            {user && (<div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt="Tailwind CSS Navbar component"
+                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
+                                </div>
+                                <ul
+                                    tabIndex="-1"
+                                    className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li><a>Settings</a></li>
+                                    <li><a>Logout</a></li>
+                                </ul>
+                            </div>)
+
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div >
+            </header >
+        </div >
+
+
+
+
     );
+
+
 };
 
 export default Navbar;

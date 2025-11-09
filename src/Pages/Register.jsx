@@ -5,7 +5,7 @@ import { AuthContext } from '../ContextApi/AuthContext';
 
 
 const Register = () => {
-    const { createWithEmailPassword } = use(AuthContext);
+    const { createWithEmailPassword, updateUserProfile } = use(AuthContext);
 
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
@@ -19,6 +19,13 @@ const Register = () => {
         createWithEmailPassword(email, password)
             .then((result) => {
                 console.log(result.user)
+                updateUserProfile(name, photo)
+                    .then(result => {
+
+                    })
+                    .catch(error => {
+                        console.log(`update profile error${error}`)
+                    })
             })
             .catch(error => {
                 console.log(error);
