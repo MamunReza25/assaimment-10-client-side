@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroSection = () => {
     return (
-        <div className='bg-img  h-screen flex justify-center items-center flex-col '>
+        <div className='bg-imgs  h-screen flex justify-center items-center flex-col '>
 
             <div className='text-gray-100'>
                 <h1 className='text-center text-2xl md:text-5xl font-bold md:font-extrabold p-5'>Learn New Skills, Advance Your Career</h1>

@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../assets/react img.jpeg';
+
 
 const data = [
     {
