@@ -95,6 +95,7 @@ const Register = () => {
                                 name="displayName"
                                 className="input rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="Name"
+                                required
                             />
                             {/* photo url field */}
                             <label className="label">PhotoURL</label>
@@ -111,6 +112,7 @@ const Register = () => {
                                 name="email"
                                 className="input rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="Email"
+                                required
                             />
                             {/* password field */}
 

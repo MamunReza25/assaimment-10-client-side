@@ -92,6 +92,7 @@ const Loginpage = () => {
                                 name="email"
                                 className="input rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="Email"
+                                required
                             />
                             {/* password field */}
                             <div className="relative">

@@ -21,11 +21,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
             },
             {
                 path: '/course',
-                element: <Course></Course>
+                element: <Course></Course>,
+                loader: () => fetch("http://localhost:3000/allcourse")
             },
             {
                 path: '/register',
