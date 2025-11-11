@@ -1,15 +1,55 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 
 const ViewDetailes = () => {
     const product = useLoaderData()
     const { _id, title, imageUrl, price, duration, category, description, created_at, created_by } = product
     console.log(product)
+    const navigate = useNavigate();
 
     // const handleEnrolment = () = {
     //     // toast.succes("Thank You. Enrolment succesfully")
     // }
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/allcourse/${_id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        navigate('/allcourse')
+                    })
+                    .catch(error => {
+                        console.log(error.message)
+                    });
+
+
+
+            }
+        });
+    }
     return (
         <div className='bg-secondary py-20'>
             <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
@@ -60,7 +100,7 @@ const ViewDetailes = () => {
                                     Enroll now
                                 </button>
                                 <button
-                                    // onClick={handleDlete}
+                                    onClick={handleDelete}
                                     className="btn btn-outline rounded-full border-gray-300 hover:border-pink-500 hover:text-pink-600"
                                 >
                                     Delete
