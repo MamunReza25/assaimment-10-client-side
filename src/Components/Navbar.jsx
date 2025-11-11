@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, Logout } = use(AuthContext);
-    console.log(user)
+
     const handleLogout = () => {
         // logout
         Logout()
@@ -30,7 +30,7 @@ const Navbar = () => {
                     <div className="flex gap-2">
                         {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
                         <NavLink to={'/'}>Home</NavLink>
-                        <NavLink to={'/course'}>Courses</NavLink>
+                        <NavLink to={'/allcourse'}>Courses</NavLink>
                         {!user && <NavLink to="/loginpage">Login</NavLink>}
                         {user && <NavLink to="/dashboard">DeshBoard</NavLink>}
 

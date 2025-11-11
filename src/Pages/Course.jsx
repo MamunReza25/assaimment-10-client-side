@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Card from './Card';
 
 const Course = () => {
     const data = useLoaderData();
-    console.log(data)
+    const [allcourse, setAllcourse] = useState(data)
+    // console.log(data)
+    const handlesearch = (e) => {
+        e.preventDefault();
+        const search_text = e.target.search.value;
+        console.log(search_text)
+
+        fetch(`http://localhost:3000/search?search=${search_text}`)
+            .then(res => res.json())
+            .then(data => {
+                setAllcourse(data)
+            })
+
+    }
+
+
+
     return (
         <div className='bg-secondary'>
-            <div className='flex justify-end '>
+            <form className='flex justify-end ' onSubmit={handlesearch}>
                 <label className="input bg-transparent text-black font-bold">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
@@ -21,22 +37,23 @@ const Course = () => {
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                     </svg>
-                    <input type="search" className="grow" placeholder="Search" />
-                    <kbd className="kbd kbd-sm">⌘</kbd>
-                    <kbd className="kbd kbd-sm">K</kbd>
+                    <input name='search' type="search" className="grow" placeholder="Search" />
+
+                    <button className='mr-2'>Search</button>
                 </label>
 
 
-            </div>
+
+            </form>
             <div>
                 <h1 className='header text-center py-10'>All Course</h1>
             </div>
             <div className='grid  md:grid-cols-3 lg:grid-cols-4 gap-5 px-6'>
                 {
-                    data.map(product => <Card product={product}></Card>)
+                    allcourse.map(product => <Card key={product._id} product={product}></Card>)
                 }
             </div>
-        </div>
+        </div >
     );
 };
 

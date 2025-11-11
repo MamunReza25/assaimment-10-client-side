@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Card = ({ product }) => {
     const { _id, title, imageUrl, price, duration, category, description } = product
@@ -25,7 +26,7 @@ const Card = ({ product }) => {
                             <p>{duration}</p>
                             <p>{price}</p>
                         </div>
-                        <button className="btn rounded-full bg-linear-to-r from-secondary to-primary hover:from-blue-600 hover:to-pink-500 text-white w-full btn-sm">View</button>
+                        <Link to={`/allcourse/${_id}`} className="btn rounded-full bg-linear-to-r from-secondary to-primary hover:from-blue-600 hover:to-pink-500 text-white w-full btn-sm">View</Link>
                     </div>
                 </div>
             </div>
