@@ -1,10 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
+
 
 const ViewDetailes = () => {
     const product = useLoaderData()
-    const { _id, title, imageUrl, price, duration, category, description } = product
+    const { _id, title, imageUrl, price, duration, category, description, created_at, created_by } = product
     console.log(product)
+
+    // const handleEnrolment = () = {
+    //     // toast.succes("Thank You. Enrolment succesfully")
+    // }
     return (
         <div className='bg-secondary py-20'>
             <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
@@ -28,35 +33,39 @@ const ViewDetailes = () => {
                                     {category}
                                 </div>
 
-                                <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
+                                {/* <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
                                     Downloaded:
-                                </div>
+                                </div> */}
                             </div>
 
                             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                                 {description}
                             </p>
 
-                            {/* <div className="flex gap-3 mt-6">
-                            <Link
-                                to={`/update-model/${model._id}`}
-                                className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700"
-                            >
-                                Update Model
-                            </Link>
-                            <button
-                                onClick={handleDownload}
-                                className="btn btn-secondary rounded-full"
-                            >
-                                Download
-                            </button>
-                            <button
-                                onClick={handleDlete}
-                                className="btn btn-outline rounded-full border-gray-300 hover:border-pink-500 hover:text-pink-600"
-                            >
-                                Delete
-                            </button>
-                        </div> */}
+                            <p>Duration:{duration}</p>
+                            <p>Price:{price}</p>
+                            <p>created_at:{created_at}</p>
+                            <p>created_by:{created_by}</p>
+                            <div className="flex gap-3 mt-6">
+                                <Link
+                                    to={`/updateCourse/${_id}`}
+                                    className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700"
+                                >
+                                    Update Course
+                                </Link>
+                                <button
+                                    // onClick={handleEnrolment}
+                                    className="btn btn-secondary rounded-full"
+                                >
+                                    Enroll now
+                                </button>
+                                <button
+                                    // onClick={handleDlete}
+                                    className="btn btn-outline rounded-full border-gray-300 hover:border-pink-500 hover:text-pink-600"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

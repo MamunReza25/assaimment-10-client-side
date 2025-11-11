@@ -12,6 +12,7 @@ import MyAddedCourse from '../Pages/MyAddedCourse';
 import MyEnrolledcourse from '../Pages/MyEnrolledcourse';
 import DeshBorad from '../Pages/DeshBorad';
 import ViewDetailes from '../Pages/ViewDetailes';
+import UpdateCourse from '../Pages/UpdateCourse';
 
 
 export const router = createBrowserRouter([
@@ -32,6 +33,12 @@ export const router = createBrowserRouter([
             {
                 path: '/allcourse/:id',
                 element: <PrivetRoutes><ViewDetailes></ViewDetailes></PrivetRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:3000/allcourse/${params.id}`)
+
+            },
+            {
+                path: '/updateCourse/:id',
+                element: <PrivetRoutes><UpdateCourse></UpdateCourse></PrivetRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:3000/allcourse/${params.id}`)
 
             },

@@ -1,10 +1,12 @@
-import React, { use } from 'react';
-import { AuthContext } from '../ContextApi/AuthContext';
+import React from 'react';
+import { useLoaderData } from 'react-router';
 
-const AddCourse = () => {
-    const { user } = use(AuthContext);
-    console.log(user)
-    const handleaddcourse = (e) => {
+const UpdateCourse = () => {
+    const product = useLoaderData()
+    const { _id, title, imageUrl, price, duration, category, description, created_at, created_by } = product
+    console.log(product)
+
+    const handleUpdatecourse = (e) => {
         e.preventDefault();
 
         const userInputData = {
@@ -14,12 +16,11 @@ const AddCourse = () => {
             imageUrl: e.target.imageUrl.value,
             price: e.target.price.value,
             duration: e.target.duration.value,
-            created_at: new Date(),
-            created_by: user.email,
+
         };
         console.log(userInputData);
-        fetch("http://localhost:3000/allcourse", {
-            method: "POST",
+        fetch(`http://localhost:3000/allcourse/${_id}`, {
+            method: "PUt",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -42,15 +43,16 @@ const AddCourse = () => {
 
     return (
         <div className='py-10'>
-            <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
+            <div className="card border border-gray-200 bg-transparent w-full max-w-md mx-auto shadow-2xl rounded-2xl">
                 <div className="card-body p-6 relative">
-                    <h2 className="text-2xl font-bold text-center mb-6">Add Course</h2>
-                    <form className="space-y-4" onSubmit={handleaddcourse}>
+                    <h2 className="text-2xl font-bold text-center mb-6">Update Course</h2>
+                    <form className="space-y-4" onSubmit={handleUpdatecourse}>
                         {/* Name Field */}
                         <div>
                             <label className="label font-medium">Title</label>
                             <input
                                 type="text"
+                                defaultValue={title}
                                 name="title"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
@@ -62,7 +64,7 @@ const AddCourse = () => {
                         <div>
                             <label className="label font-medium">Category</label>
                             <select
-                                defaultValue={""}
+                                defaultValue={category}
                                 name="category"
                                 required
                                 className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
@@ -87,6 +89,7 @@ const AddCourse = () => {
                             <label className="label font-medium">Description</label>
                             <textarea
                                 name="description"
+                                defaultValue={description}
                                 required
                                 rows="3"
                                 className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[250px]"
@@ -100,6 +103,7 @@ const AddCourse = () => {
                             <input
                                 type="url"
                                 name="imageUrl"
+                                defaultValue={imageUrl}
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="https://example.com/image.jpg"
@@ -111,6 +115,7 @@ const AddCourse = () => {
                             <input
                                 type="number"
                                 name="price"
+                                defaultValue={price}
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="price"
@@ -122,6 +127,7 @@ const AddCourse = () => {
                             <input
                                 type="text"
                                 name="duration"
+                                defaultValue={duration}
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                                 placeholder="Duration"
@@ -142,4 +148,4 @@ const AddCourse = () => {
     );
 };
 
-export default AddCourse;
+export default UpdateCourse;
