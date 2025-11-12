@@ -42,11 +42,11 @@ const UpdateCourse = () => {
 
 
     return (
-        <div className='py-10'>
+        <div className='py-10 bg-secondary'>
             <div className="card border border-gray-200 bg-transparent w-full max-w-md mx-auto shadow-2xl rounded-2xl">
                 <div className="card-body p-6 relative">
                     <h2 className="text-2xl font-bold text-center mb-6">Update Course</h2>
-                    <form className="space-y-4" onSubmit={handleUpdatecourse}>
+                    <form className="space-y-4 " onSubmit={handleUpdatecourse} >
                         {/* Name Field */}
                         <div>
                             <label className="label font-medium">Title</label>
@@ -55,7 +55,7 @@ const UpdateCourse = () => {
                                 defaultValue={title}
                                 name="title"
                                 required
-                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+                                className="input w-full rounded-full focus:border-0  focus:outline-gray-200 bg-transparent"
                                 placeholder="Enter name"
                             />
                         </div>
@@ -67,7 +67,7 @@ const UpdateCourse = () => {
                                 defaultValue={category}
                                 name="category"
                                 required
-                                className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
+                                className="select w-full rounded-full focus:border-0 focus:outline-gray-200 bg-transparent"
                             >
                                 <option value="" disabled>
                                     Select category
@@ -92,7 +92,7 @@ const UpdateCourse = () => {
                                 defaultValue={description}
                                 required
                                 rows="3"
-                                className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[250px]"
+                                className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[250px] bg-transparent"
                                 placeholder="Enter description"
                             ></textarea>
                         </div>
@@ -105,7 +105,7 @@ const UpdateCourse = () => {
                                 name="imageUrl"
                                 defaultValue={imageUrl}
                                 required
-                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-transparent"
                                 placeholder="https://example.com/image.jpg"
                             />
                         </div>
@@ -117,7 +117,7 @@ const UpdateCourse = () => {
                                 name="price"
                                 defaultValue={price}
                                 required
-                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-transparent"
                                 placeholder="price"
                             />
                         </div>
@@ -129,7 +129,7 @@ const UpdateCourse = () => {
                                 name="duration"
                                 defaultValue={duration}
                                 required
-                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+                                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-transparent"
                                 placeholder="Duration"
                             />
                         </div>

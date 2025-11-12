@@ -5,6 +5,7 @@ import Card from './Card';
 const Course = () => {
     const data = useLoaderData();
     const [allcourse, setAllcourse] = useState(data)
+
     // console.log(data)
     const handlesearch = (e) => {
         e.preventDefault();
@@ -15,6 +16,7 @@ const Course = () => {
             .then(res => res.json())
             .then(data => {
                 setAllcourse(data)
+
             })
 
     }

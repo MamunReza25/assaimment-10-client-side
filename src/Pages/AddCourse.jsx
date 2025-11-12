@@ -1,22 +1,59 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../ContextApi/AuthContext';
 
 const AddCourse = () => {
     const { user } = use(AuthContext);
     console.log(user)
+    const [img, setImg] = useState();
+
     const handleaddcourse = (e) => {
         e.preventDefault();
+
+        const form = e.target;
+        const imageFile = form.imageUrl.files[0];
+
+        if (!imageFile) {
+            console.error("No image selected");
+            return;
+        }
+
+
+        const formData = new FormData();
+        formData.append("image", imageFile);
+
+        const imgbbApiKey = "0cbe033193bd8597ae0ca4ded390e4d1";
+        fetch(`https://api.imgbb.com/1/upload?key=${imgbbApiKey}`, {
+            method: "POST",
+            body: formData,
+
+        })
+            .then(res => res.json())
+            .then(apiResponse => {
+                if (!apiResponse.success) {
+                    console.error("ImgBB upload failed", apiResponse);
+                    return;
+                }
+                const uploadedImageUrl = apiResponse.data.display_url;
+                setImg(uploadedImageUrl)
+            })
+
+
+
+
+
 
         const userInputData = {
             title: e.target.title.value,
             category: e.target.category.value,
             description: e.target.description.value,
-            imageUrl: e.target.imageUrl.value,
+            imageUrl: img,
             price: e.target.price.value,
             duration: e.target.duration.value,
             created_at: new Date(),
             created_by: user.email,
         };
+
+
         console.log(userInputData);
         fetch("http://localhost:3000/allcourse", {
             method: "POST",
@@ -36,8 +73,7 @@ const AddCourse = () => {
             });
 
 
-
-    }
+    };
 
 
     return (
@@ -98,7 +134,7 @@ const AddCourse = () => {
                         <div>
                             <label className="label font-medium">imageUrl</label>
                             <input
-                                type="url"
+                                type="file"
                                 name="imageUrl"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"

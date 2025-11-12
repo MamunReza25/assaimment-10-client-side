@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../ContextApi/AuthContext';
 
 
 const ViewDetailes = () => {
+    const { user } = use(AuthContext)
     const product = useLoaderData()
     const { _id, title, imageUrl, price, duration, category, description, created_at, created_by } = product
     console.log(product)
     const navigate = useNavigate();
 
-    // const handleEnrolment = () = {
-    //     // toast.succes("Thank You. Enrolment succesfully")
-    // }
+    const handleEnrolment = () => {
+        const userInputData = {
+            title: title,
+            category: category,
+            description: description,
+            imageUrl: imageUrl,
+            price: price,
+            duration: duration,
+            created_at: new Date(),
+            created_by: user.email,
+        };
+        fetch("http://localhost:3000/enrollCourse", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userInputData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                Swal.fire("Thank You!", "Enrollment successful", "success");
+            })
+            .catch((err) => {
+                console.error(err);
+                Swal.fire("Error!", "Enrollment failed", "error");
+            });
+
+    }
 
     const handleDelete = () => {
         Swal.fire({
@@ -94,7 +122,7 @@ const ViewDetailes = () => {
                                     Update Course
                                 </Link>
                                 <button
-                                    // onClick={handleEnrolment}
+                                    onClick={handleEnrolment}
                                     className="btn btn-secondary rounded-full"
                                 >
                                     Enroll now
