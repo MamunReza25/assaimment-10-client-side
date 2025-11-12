@@ -22,7 +22,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <header className='w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 flex justify-between items-center'>
+            <header className='w-full bg-gradient-to-r from-blue-500 to- text-white px-6 py-3 flex justify-between items-center'>
                 <div className="navbar">
                     <div className="flex-1">
                         <a className="btn btn-ghost text-xl">LearnHub</a>
@@ -33,6 +33,7 @@ const Navbar = () => {
                         <NavLink to={'/allcourse'}>Courses</NavLink>
                         {!user && <NavLink to="/loginpage">Login</NavLink>}
                         {user && <NavLink to="/dashboard">DeshBoard</NavLink>}
+                        {/* <input type="checkbox" defaultChecked className="toggle toggle-info" /> */}
 
                         <div>
 

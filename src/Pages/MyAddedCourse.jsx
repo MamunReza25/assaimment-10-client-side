@@ -31,7 +31,7 @@ const MyAddedCourse = () => {
     }
 
     return (
-        <div className='bg-secondary'>
+        <div className=''>
 
             <div>
                 <h1 className='header text-center py-10'>My Added Course</h1>

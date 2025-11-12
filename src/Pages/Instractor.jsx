@@ -2,47 +2,78 @@ import React from "react";
 import styled from "styled-components";
 
 const instructors = [
-    { img: "https://i.ibb.co/dwGJXqqM/jankar-mahbub.jpg", name: "Jankar Mahbub", title: "React Instructor", button: "View Profile" },
-    { img: "https://i.ibb.co/Jj9ZKyCm/giyas-uddin.jpg", name: "Giyas Uddin", title: "Node.js Instructor", button: "View Profile" },
-    { img: "https://i.ibb.co/6JJNcbMW/Zahid.jpg", name: "Zahid", title: "Fullstack Instructor", button: "View Profile" },
-    { img: "https://i.ibb.co/8LyfGMvW/josim.jpg", name: "Josim", title: "Frontend Instructor", button: "View Profile" },
-    { img: "https://i.ibb.co/VW9HjgYG/sakil.jpg", name: "Sakil", title: "Backend Instructor", button: "View Profile" },
-    { img: "https://i.ibb.co/99xnm6Kf/rakib.jpg", name: "Rakib", title: "UI/UX Instructor", button: "View Profile" },
+  {
+    img: "https://i.ibb.co/dwGJXqqM/jankar-mahbub.jpg",
+    name: "Jankar Mahbub",
+    title: "React Instructor",
+    email: "jankar.mahbub@gmail.com"
+  },
+  {
+    img: "https://i.ibb.co/Jj9ZKyCm/giyas-uddin.jpg",
+    name: "Giyas Uddin",
+    title: "Node.js Instructor",
+    email: "giyas.uddin@gmail.com"
+  },
+  {
+    img: "https://i.ibb.co/6JJNcbMW/Zahid.jpg",
+    name: "Zahid",
+    title: "Fullstack Instructor",
+    email: "zahid.dev@gmail.com"
+  },
+  {
+    img: "https://i.ibb.co/8LyfGMvW/josim.jpg",
+    name: "Josim",
+    title: "Frontend Instructor",
+    email: "josim.web@gmail.com"
+  },
+  {
+    img: "https://i.ibb.co/VW9HjgYG/sakil.jpg",
+    name: "Sakil",
+    title: "Backend Instructor",
+    email: "sakil.backend@gmail.com"
+  },
+  {
+    img: "https://i.ibb.co/99xnm6Kf/rakib.jpg",
+    name: "Rakib",
+    title: "UI/UX Instructor",
+    email: "rakib.uiux@gmail.com"
+  },
 ];
 
+
 const Instructor = () => {
-    return (
-        <div className="bg-secondary m-0">
-            <h1 className="header text-center">Top Instructors</h1>
-            <StyledWrapper>
-                <div className="wrapper">
-                    {instructors.map((inst, i) => (
-                        <div
-                            key={i}
-                            className="card"
-                            style={{
-                                "--rotate": `${(360 / instructors.length) * i}deg`,
-                            }}
-                        >
-                            <img src={inst.img} alt={inst.name} />
-                            <div className="text">
-                                <h3>{inst.name}</h3>
-                                <p>{inst.title}</p>
-                                <button className="btn-donate h-2">{inst.button}</button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </StyledWrapper>
+  return (
+    <div className="bg-secondary m-0">
+      <h1 className="header text-center">Top Instructors</h1>
+      <StyledWrapper>
+        <div className="wrapper">
+          {instructors.map((inst, i) => (
+            <div
+              key={i}
+              className="card"
+              style={{
+                "--rotate": `${(360 / instructors.length) * i}deg`,
+              }}
+            >
+              <img src={inst.img} alt={inst.name} />
+              <div className="text">
+                <h3>{inst.name}</h3>
+                <p>{inst.title}</p>
+                <p>{inst.email}</p>
+              </div>
+            </div>
+          ))}
         </div>
-    );
+      </StyledWrapper>
+    </div>
+  );
 };
 
 const StyledWrapper = styled.div`
   .wrapper {
     width: 100%;
-    max-width: 400px;
-    height: 400px;
+    max-width: 500px;
+    height: 500px;
     margin: 50px auto;
     perspective: 1200px;
     position: relative;
@@ -57,8 +88,8 @@ const StyledWrapper = styled.div`
 
   .card {
     position: absolute;
-    width: 150px;
-    height: 220px;
+    width: 170px;
+    height: 250px;
     top: 50%;
     left: 50%;
     margin: -110px 0 0 -75px;
@@ -78,7 +109,7 @@ const StyledWrapper = styled.div`
 
   .card img {
     width: 100%;
-    height: 120px;
+    height: 150px;
     object-fit: cover;
   }
 
@@ -135,7 +166,7 @@ const StyledWrapper = styled.div`
     }
 
     .card img {
-      height: 180px;
+      height: 120px;
     }
   }
 
