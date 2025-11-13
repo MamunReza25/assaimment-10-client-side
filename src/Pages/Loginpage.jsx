@@ -77,7 +77,7 @@ const Loginpage = () => {
 
 
     return (
-        <div className='bg-secondary py-10'>
+        <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A]  py-10'>
             <div className='card  bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl '>
                 <div className="card-body ">
                     <h1 className="text-3xl font-bold text-center">LogIn</h1>

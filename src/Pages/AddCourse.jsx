@@ -1,5 +1,6 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../ContextApi/AuthContext';
+import { toast } from 'react-toastify';
 
 const AddCourse = () => {
     const { user } = use(AuthContext);
@@ -8,7 +9,6 @@ const AddCourse = () => {
 
     const handleaddcourse = (e) => {
         e.preventDefault();
-
         const form = e.target;
         const imageFile = form.imageUrl.files[0];
 
@@ -67,9 +67,12 @@ const AddCourse = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                toast.success("added successfully...")
+
             })
             .catch(error => {
                 console.log(error.message)
+                toast.error("added failed cheek internet connection...")
             });
 
 

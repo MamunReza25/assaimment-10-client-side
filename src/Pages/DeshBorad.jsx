@@ -5,9 +5,9 @@ import MainLayout from '../Layout/MainLayout';
 const DeshBorad = () => {
     return (
 
-        <div className="flex min-h-screen">
+        <div className="flex flex-col md:flex-row min-h-screen">
             {/* Sidebar Section */}
-            <aside className="w-64 bg-gray-300 p-5">
+            <aside className="w-full md:w-64 bg-gray-300 dark:bg-[#1D232A] dark:text-white p-5">
                 <h2 className="text-xl font-semibold mb-4">Dashboard</h2>
                 <ul className="space-y-3">
                     <li><NavLink to="/dashboard/my-enrolled-course">My Enrolled Courses</NavLink></li>
@@ -17,7 +17,7 @@ const DeshBorad = () => {
             </aside>
 
             {/* Dashboard Content Section */}
-            <section className="flex-1 p-8 bg-secondary">
+            <section className="flex-1 p-8 bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] ">
 
                 <Outlet />
             </section>

@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../ContextApi/AuthContext';
-import Card from './Card';
+
+import MyCourseCard from './MyCourseCard';
 
 const MyAddedCourse = () => {
     const { user } = use(AuthContext);
@@ -12,7 +13,9 @@ const MyAddedCourse = () => {
             .then(res => res.json())
             .then(result => {
                 setData(result)
+
                 setLoading(false)
+
             })
     }, []);
     if (loading) {
@@ -31,18 +34,21 @@ const MyAddedCourse = () => {
     }
 
     return (
-        <div className=''>
+        <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
 
             <div>
                 <h1 className='header text-center py-10'>My Added Course</h1>
             </div>
-            <div className='grid  md:grid-cols-3 lg:grid-cols-4 gap-5 px-6'>
+            <div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-5 px-6'>
                 {
-                    data?.map(product => <Card key={product._id} product={product}></Card>)
+                    data?.map(product => <MyCourseCard key={product._id} product={product}></MyCourseCard>)
                 }
             </div>
         </div >
     );
+
+
+
 };
 
 export default MyAddedCourse;

@@ -79,7 +79,7 @@ const ViewDetailes = () => {
         });
     }
     return (
-        <div className='bg-secondary py-20'>
+        <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A]  py-20'>
             <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
                 <div className="card bg-transparent shadow-xl border border-gray-200 rounded-2xl overflow-hidden">
                     <div className="flex flex-col md:flex-row gap-8 p-6 md:p-8">
@@ -115,24 +115,14 @@ const ViewDetailes = () => {
                             <p>created_at:{created_at}</p>
                             <p>created_by:{created_by}</p>
                             <div className="flex gap-3 mt-6">
-                                <Link
-                                    to={`/updateCourse/${_id}`}
-                                    className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700"
-                                >
-                                    Update Course
-                                </Link>
+
                                 <button
                                     onClick={handleEnrolment}
-                                    className="btn btn-secondary rounded-full"
+                                    className="btn btn-secondary rounded-full w-full"
                                 >
                                     Enroll now
                                 </button>
-                                <button
-                                    onClick={handleDelete}
-                                    className="btn btn-outline rounded-full border-gray-300 hover:border-pink-500 hover:text-pink-600"
-                                >
-                                    Delete
-                                </button>
+
                             </div>
                         </div>
                     </div>

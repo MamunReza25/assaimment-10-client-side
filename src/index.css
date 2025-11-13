@@ -1,15 +1,27 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+
+
+
 
 .bg-imgs {
     background-image: url(./assets/program-banar.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+
 }
+
 
 .header {
     font-size: 40px;
     font-weight: 900;
-    color: whitesmoke;
+
 }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Card from './Card';
+import ScrollAnimation from '../Animation/ScrollAnimation';
+import FremarMotion from '../FremarMotion';
 
 const Course = () => {
     const data = useLoaderData();
@@ -24,9 +26,10 @@ const Course = () => {
 
 
     return (
-        <div className='bg-secondary'>
+
+        <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
             <form className='flex justify-end ' onSubmit={handlesearch}>
-                <label className="input bg-transparent text-black font-bold">
+                <label className="input bg-base-100 shadow-sm text-black dark:text-white font-bold">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                             strokeLinejoin="round"
@@ -50,12 +53,21 @@ const Course = () => {
             <div>
                 <h1 className='header text-center py-10'>All Course</h1>
             </div>
-            <div className='grid  md:grid-cols-3 lg:grid-cols-4 gap-5 px-6'>
-                {
-                    allcourse.map(product => <Card key={product._id} product={product}></Card>)
-                }
-            </div>
+            <FremarMotion>
+                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 px-6 backdrop-blur-lg bg-white/10 rounded-2xl p-4">
+
+                    {
+                        allcourse.map(product => <Card key={product._id} product={product}></Card>)
+                    }
+
+                </div>
+
+            </FremarMotion >
+
+
         </div >
+
+
     );
 };
 

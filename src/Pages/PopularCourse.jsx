@@ -1,4 +1,6 @@
 import React from 'react';
+import ScrollAnimation from '../Animation/ScrollAnimation';
+import Card from './Card';
 
 
 const data = [
@@ -60,43 +62,44 @@ const data = [
 
 const PopularCourse = () => {
     return (
-        <div className="bg-secondary px-2 md:px-20">
-            <div className="text-2xl md:header text-center pt-10 md:pt-20">
-                <h1>Popular Courses</h1>
+
+        <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
+            <form className='flex justify-end '>
+                <label className="input bg-transparent text-black font-bold">
+                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                            strokeWidth="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input name='search' type="search" className="grow" placeholder="Search" />
+
+                    <button className='mr-2'>Search</button>
+                </label>
+
+
+
+            </form>
+            <div>
+                <h1 className='header text-center py-10'>All Course</h1>
             </div>
 
-            <div className=" py-2 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {data.map(course => (
-                    <div key={course.id} className="card bg-primary w-full shadow-sm text-white">
-                        <figure className="px-10 pt-10">
-                            <img
-                                src={course.imageUrl || img}
-                                alt={course.title}
-                                className="rounded-xl w-full h-64 object-cover"
-                            />
-                        </figure>
-                        <div className="card-body items-center text-center">
-                            <h2 className="card-title font-bold text-pink-300  ">{course.title}</h2>
-                            <p className="text-[16px]">
-                                <span className="font-bold">Duration:</span> {course.duration}
-                            </p>
-                            <p className="text-[16px]">
-                                <span className="font-bold">Category:</span> {course.category}
-                            </p>
-                            <p className="text-[16px] px-5 py-2">
-                                <span className="font-bold">Description:</span> {course.description}
-                            </p>
-                            <div className="card-actions flex justify-between items-center gap-10">
-                                <p className="text-[16px]">
-                                    <span className="font-bold">Price:</span> {course.price} $
-                                </p>
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 px-6 backdrop-blur-lg bg-white/10 rounded-2xl p-4">
+
+                {
+                    data.map(product => <ScrollAnimation><Card key={product._id} product={product}></Card></ScrollAnimation>)
+                }
             </div>
-        </div>
+
+        </div >
+
+
     );
 };
 

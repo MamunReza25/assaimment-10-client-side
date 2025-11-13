@@ -43,7 +43,7 @@ const instructors = [
 
 const Instructor = () => {
   return (
-    <div className="bg-secondary m-0">
+    <div className="bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A]  m-0">
       <h1 className="header text-center">Top Instructors</h1>
       <StyledWrapper>
         <div className="wrapper">

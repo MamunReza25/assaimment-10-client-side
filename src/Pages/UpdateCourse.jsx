@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
+import { toast } from 'react-toastify';
 
 const UpdateCourse = () => {
     const product = useLoaderData()
@@ -31,9 +32,11 @@ const UpdateCourse = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                toast.success("update successfully..")
             })
             .catch(error => {
                 console.log(error.message)
+                toast.error("update failled...")
             });
 
 
@@ -42,7 +45,7 @@ const UpdateCourse = () => {
 
 
     return (
-        <div className='py-10 bg-secondary'>
+        <div className='py-10 bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
             <div className="card border border-gray-200 bg-transparent w-full max-w-md mx-auto shadow-2xl rounded-2xl">
                 <div className="card-body p-6 relative">
                     <h2 className="text-2xl font-bold text-center mb-6">Update Course</h2>

@@ -1,10 +1,25 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Navigate, NavLink } from 'react-router';
 import { AuthContext } from '../ContextApi/AuthContext';
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, Logout } = use(AuthContext);
+
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+
+    useEffect(() => {
+        const html = document.querySelector("html");
+        html.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+
+
+    const handleTheme = (checked) => {
+        setTheme(checked ? "dark" : "light");
+    };
+
 
     const handleLogout = () => {
         // logout
@@ -22,18 +37,24 @@ const Navbar = () => {
     }
     return (
         <div>
-            <header className='w-full bg-gradient-to-r from-blue-500 to- text-white px-6 py-3 flex justify-between items-center'>
-                <div className="navbar">
+            <header>
+                <div className="navbar  bg-linear-to-r from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A]  shadow-sm">
                     <div className="flex-1">
                         <a className="btn btn-ghost text-xl">LearnHub</a>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 text-[14px] md:text-[20px] md:gap-4">
                         {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
                         <NavLink to={'/'}>Home</NavLink>
                         <NavLink to={'/allcourse'}>Courses</NavLink>
                         {!user && <NavLink to="/loginpage">Login</NavLink>}
                         {user && <NavLink to="/dashboard">DeshBoard</NavLink>}
                         {/* <input type="checkbox" defaultChecked className="toggle toggle-info" /> */}
+                        <input
+                            onChange={(e) => handleTheme(e.target.checked)}
+                            type="checkbox"
+                            defaultChecked={localStorage.getItem('theme') === "dark"}
+                            className="toggle" />
+
 
                         <div>
 
@@ -48,13 +69,8 @@ const Navbar = () => {
                                 <ul
                                     tabIndex="-1"
                                     className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                    <li>
-                                        <a className="justify-between">
-                                            Profile
-                                            <span className="badge">New</span>
-                                        </a>
-                                    </li>
-                                    <li><a>Settings</a></li>
+
+
                                     <NavLink to={'/'}> <li type="submit" onClick={handleLogout} >Logout</li></NavLink>
                                 </ul>
                             </div>)

@@ -1,7 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../ContextApi/AuthContext';
-import Card from './Card';
-import Swal from 'sweetalert2';
+import EnrollCard from './EnrollCard';
 
 const MyEnrolledcourse = () => {
     const { user } = use(AuthContext);
@@ -30,14 +29,14 @@ const MyEnrolledcourse = () => {
 
     }
     return (
-        <div className='bg-secondary'>
+        <div className=''>
 
             <div>
                 <h1 className='header text-center py-10'>My Enroll Course</h1>
             </div>
             <div className='grid  md:grid-cols-3 lg:grid-cols-4 gap-5 px-6'>
                 {
-                    data?.map(product => <Card key={product._id} product={product}></Card>)
+                    data?.map(product => <EnrollCard key={product._id} product={product}></EnrollCard>)
                 }
             </div>
         </div >
