@@ -1,41 +1,41 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import { AuthContext } from '../ContextApi/AuthContext';
 import { toast } from 'react-toastify';
 
 const AddCourse = () => {
     const { user } = use(AuthContext);
     // console.log(user)
-    const [img, setImg] = useState();
+    // const [img, setImg] = useState();
 
     const handleaddcourse = (e) => {
         e.preventDefault();
-        const form = e.target;
-        const imageFile = form.imageUrl.files[0];
+        // const form = e.target;
+        // const imageFile = form.imageUrl.files[0];
 
-        if (!imageFile) {
-            console.error("No image selected");
-            return;
-        }
+        // if (!imageFile) {
+        //     c        onsole.error("No image selected");
+        //     return;
+        // }
 
 
-        const formData = new FormData();
-        formData.append("image", imageFile);
+        // const formData = new FormData();
+        // formData.append("image", imageFile);
 
-        const imgbbApiKey = "0cbe033193bd8597ae0ca4ded390e4d1";
-        fetch(`https://api.imgbb.com/1/upload?key=${imgbbApiKey}`, {
-            method: "POST",
-            body: formData,
+        // const imgbbApiKey = "0cbe033193bd8597ae0ca4ded390e4d1";
+        // fetch(`https://api.imgbb.com/1/upload?key=${imgbbApiKey}`, {
+        //     method: "POST",
+        //     body: formData,
 
-        })
-            .then(res => res.json())
-            .then(apiResponse => {
-                if (!apiResponse.success) {
-                    console.error("ImgBB upload failed", apiResponse);
-                    return;
-                }
-                const uploadedImageUrl = apiResponse.data.display_url;
-                setImg(uploadedImageUrl)
-            })
+        // })
+        //     .then(res => res.json())
+        //     .then(apiResponse => {
+        //         if (!apiResponse.success) {
+        //             console.error("ImgBB upload failed", apiResponse);
+        //             return;
+        //         }
+        //         const uploadedImageUrl = apiResponse.data.display_url;
+        //         setImg(uploadedImageUrl)
+        //     })
 
 
 
@@ -46,7 +46,7 @@ const AddCourse = () => {
             title: e.target.title.value,
             category: e.target.category.value,
             description: e.target.description.value,
-            imageUrl: img,
+            imageUrl: e.target.imageUrl.value,
             price: e.target.price.value,
             duration: e.target.duration.value,
             created_at: new Date(),
@@ -137,11 +137,11 @@ const AddCourse = () => {
                         <div>
                             <label className="label font-medium">imageUrl</label>
                             <input
-                                type="file"
+                                type="url"
                                 name="imageUrl"
                                 required
                                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
-                                placeholder="https://example.com/image.jpg"
+                                placeholder="https://example.com/image.jpg "
                             />
                         </div>
                         {/* price */}
