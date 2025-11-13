@@ -9,7 +9,7 @@ const MyAddedCourse = () => {
     const [loading, setLoading] = useState(true)
     console.log(data)
     useEffect(() => {
-        fetch(`http://localhost:3000/myAdedCourse?email=${user.email}`)
+        fetch(`https://onlinelearningplateform.vercel.app/myAdedCourse?email=${user.email}`)
             .then(res => res.json())
             .then(result => {
                 setData(result)

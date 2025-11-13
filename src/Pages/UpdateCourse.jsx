@@ -20,7 +20,7 @@ const UpdateCourse = () => {
 
         };
         console.log(userInputData);
-        fetch(`http://localhost:3000/allcourse/${_id}`, {
+        fetch(`https://onlinelearningplateform.vercel.app/allcourse/${_id}`, {
             method: "PUt",
             headers: {
                 "Content-Type": "application/json",

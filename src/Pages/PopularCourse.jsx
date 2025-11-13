@@ -64,30 +64,9 @@ const PopularCourse = () => {
     return (
 
         <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
-            <form className='flex justify-end '>
-                <label className="input bg-transparent text-black font-bold">
-                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g
-                            strokeLinejoin="round"
-                            strokeLinecap="round"
-                            strokeWidth="2.5"
-                            fill="none"
-                            stroke="currentColor"
-                        >
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.3-4.3"></path>
-                        </g>
-                    </svg>
-                    <input name='search' type="search" className="grow" placeholder="Search" />
 
-                    <button className='mr-2'>Search</button>
-                </label>
-
-
-
-            </form>
             <div>
-                <h1 className='header text-center py-10'>All Course</h1>
+                <h1 className='header text-center py-10'>Popular Courses </h1>
             </div>
 
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 px-6 backdrop-blur-lg bg-white/10 rounded-2xl p-4">

@@ -23,8 +23,8 @@ const Card = ({ product }) => {
 
                     <div className="card-actions justify-between items-center mt-4">
                         <div className="flex gap-4 text-sm text-base-content/60">
-                            <p>{duration}</p>
-                            <p>{price}</p>
+                            <p>{duration} weeks</p>
+                            <p>{price} Taka</p>
                         </div>
                         <Link to={`/allcourse/${_id}`} className="btn rounded-full bg-linear-to-r from-secondary to-primary hover:from-blue-600 hover:to-pink-500 text-white w-full btn-sm">View</Link>
                     </div>

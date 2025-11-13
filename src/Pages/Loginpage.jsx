@@ -32,7 +32,7 @@ const Loginpage = () => {
                 const user = (result.user);
                 toast.success("Login Successfully!");
                 e.target.reset();
-                navigate(location.state || "/");
+                navigate("/");
 
             })
             .catch(error => {

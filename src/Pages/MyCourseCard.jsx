@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router';
 
 import Swal from 'sweetalert2';
@@ -21,7 +21,7 @@ const MyCourseCard = ({ product }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/allcourse/${_id}`, {
+                fetch(`https://onlinelearningplateform.vercel.app/allcourse/${_id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -69,8 +69,8 @@ const MyCourseCard = ({ product }) => {
 
                     <div className="card-actions justify-between items-center mt-4">
                         <div className="flex gap-4 text-sm text-base-content/60">
-                            <p>{duration}</p>
-                            <p>{price}</p>
+                            <p>{duration} weeks</p>
+                            <p>{price} Taka</p>
                         </div>
 
                     </div>

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const AddCourse = () => {
     const { user } = use(AuthContext);
-    console.log(user)
+    // console.log(user)
     const [img, setImg] = useState();
 
     const handleaddcourse = (e) => {
@@ -55,7 +55,7 @@ const AddCourse = () => {
 
 
         console.log(userInputData);
-        fetch("http://localhost:3000/allcourse", {
+        fetch("https://onlinelearningplateform.vercel.app/allcourse", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const AddCourse = () => {
 
 
     return (
-        <div className='py-10'>
+        <div className='py-10' >
             <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
                 <div className="card-body p-6 relative">
                     <h2 className="text-2xl font-bold text-center mb-6">Add Course</h2>
@@ -177,7 +177,7 @@ const AddCourse = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -28,18 +28,18 @@ export const router = createBrowserRouter([
             {
                 path: '/allcourse',
                 element: <Course></Course>,
-                loader: () => fetch("http://localhost:3000/allcourse")
+                loader: () => fetch("https://onlinelearningplateform.vercel.app/allcourse")
             },
             {
                 path: '/allcourse/:id',
                 element: <PrivetRoutes><ViewDetailes></ViewDetailes></PrivetRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:3000/allcourse/${params.id}`)
+                loader: ({ params }) => fetch(`https://onlinelearningplateform.vercel.app/allcourse/${params.id}`)
 
             },
             {
                 path: '/updateCourse/:id',
                 element: <PrivetRoutes><UpdateCourse></UpdateCourse></PrivetRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:3000/allcourse/${params.id}`)
+                loader: ({ params }) => fetch(`https://onlinelearningplateform.vercel.app/allcourse/${params.id}`)
 
             },
             {
@@ -65,17 +65,17 @@ export const router = createBrowserRouter([
 
                     {
                         path: 'my-enrolled-course',
-                        element: <MyEnrolledcourse></MyEnrolledcourse>,
+                        element: <PrivetRoutes> <MyEnrolledcourse></MyEnrolledcourse></PrivetRoutes>,
 
                     },
 
                     {
                         path: 'my-added-course',
-                        element: <MyAddedCourse></MyAddedCourse>,
+                        element: <PrivetRoutes><MyAddedCourse></MyAddedCourse></PrivetRoutes>,
                     },
                     {
                         path: 'add-course',
-                        element: <AddCourse></AddCourse>,
+                        element: <PrivetRoutes><AddCourse></AddCourse></PrivetRoutes>,
                     },
 
                 ]

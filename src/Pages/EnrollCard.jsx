@@ -18,7 +18,7 @@ const EnrollCard = ({ product }) => {
                 <div className="card-body">
                     <h2 className="card-title"> {title}</h2>
                     <div className="badge text-xs badge-xs badge-secondary rounded-full">{category}</div>
-                    <div className="text-xs text-secondary">UserName:{created_by}</div>
+                    <div className="text-xs text-secondary">{created_by}</div>
                     <p className="line-clamp-1">
                         {description}
                     </p>

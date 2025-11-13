@@ -8,7 +8,7 @@ const MyEnrolledcourse = () => {
     const [loading, setLoading] = useState(true)
     console.log(data)
     useEffect(() => {
-        fetch(`http://localhost:3000/enrollCourse?email=${user.email}`)
+        fetch(`https://onlinelearningplateform.vercel.app/enrollCourse?email=${user.email}`)
             .then(res => res.json())
             .then(result => {
                 setData(result)

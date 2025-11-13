@@ -22,7 +22,7 @@ const ViewDetailes = () => {
             created_at: new Date(),
             created_by: user.email,
         };
-        fetch("http://localhost:3000/enrollCourse", {
+        fetch("https://onlinelearningplateform.vercel.app/enrollCourse", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const ViewDetailes = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/allcourse/${_id}`, {
+                fetch(`https://onlinelearningplateform.vercel.app/allcourse/${_id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -97,28 +97,25 @@ const ViewDetailes = () => {
                             </h1>
 
                             <div className="flex gap-3">
-                                <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
+                                <div className="badge badge-lg badge-outline text-black border-white font-medium">
                                     {category}
                                 </div>
 
-                                {/* <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
-                                    Downloaded:
-                                </div> */}
                             </div>
 
                             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                                 {description}
                             </p>
 
-                            <p>Duration:{duration}</p>
-                            <p>Price:{price}</p>
+                            <p>Duration: {duration} Weeks</p>
+                            <p>Price: {price} Taka</p>
                             <p>created_at:{created_at}</p>
                             <p>created_by:{created_by}</p>
                             <div className="flex gap-3 mt-6">
 
                                 <button
                                     onClick={handleEnrolment}
-                                    className="btn btn-secondary rounded-full w-full"
+                                    className="btn  rounded-full w-full"
                                 >
                                     Enroll now
                                 </button>
