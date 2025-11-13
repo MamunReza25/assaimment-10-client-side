@@ -35,6 +35,7 @@ const MyAddedCourse = () => {
 
     return (
         <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
+            <title>onlinelearningplatform-my-added-course</title>
 
             <div>
                 <h1 className='header text-center py-10'>My Added Course</h1>

@@ -30,7 +30,7 @@ const MyEnrolledcourse = () => {
     }
     return (
         <div className=''>
-
+            <title>onlinelearningplatform-myEnroll-course</title>
             <div>
                 <h1 className='header text-center py-10'>My Enroll Course</h1>
             </div>

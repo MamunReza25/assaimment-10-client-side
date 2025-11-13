@@ -82,6 +82,7 @@ const AddCourse = () => {
     return (
         <div className='py-10' >
             <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
+                <title>onlinelearningplatform-add-course</title>
                 <div className="card-body p-6 relative">
                     <h2 className="text-2xl font-bold text-center mb-6">Add Course</h2>
                     <form className="space-y-4" onSubmit={handleaddcourse}>
@@ -172,7 +173,7 @@ const AddCourse = () => {
                             type="submit"
                             className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-primary to-secondary hover:from-pink-600 hover:to-primary"
                         >
-                            Add Model
+                            Add Course
                         </button>
                     </form>
                 </div>

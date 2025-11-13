@@ -28,6 +28,7 @@ const Course = () => {
     return (
 
         <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A] '>
+            <title>onlinelearningplatform-allCourse</title>
             <form className='flex justify-end ' onSubmit={handlesearch}>
                 <label className="input bg-base-100 shadow-sm text-black dark:text-white font-bold">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

@@ -80,6 +80,7 @@ const ViewDetailes = () => {
     }
     return (
         <div className='bg-linear-to-t from-[#5E4AF1] to-[#BA0BF9] dark:to-[#1D232A] dark:from-[#1D232A]  py-20'>
+            <title>onlinelearningplatform-detailes</title>
             <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
                 <div className="card bg-transparent shadow-xl border border-gray-200 rounded-2xl overflow-hidden">
                     <div className="flex flex-col md:flex-row gap-8 p-6 md:p-8">

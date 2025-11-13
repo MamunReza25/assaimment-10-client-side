@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const ErrorPage = () => {
     return (
         <div className="flex flex-col justify-center items-center h-screen text-center bg-gradient-to-br from-blue-100 to-purple-200 dark:from-gray-900 dark:to-gray-800">
+            <title>Error-404</title>
             <motion.h1
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}

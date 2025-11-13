@@ -8,6 +8,7 @@ import Instractor from './Instractor';
 const Home = () => {
     return (
         <div>
+            <title>onlinelearningplatform-home</title>
             <HeroSection></HeroSection>
             <PopularCourse></PopularCourse>
             <WhyChoice></WhyChoice>

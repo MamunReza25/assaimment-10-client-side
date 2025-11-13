@@ -6,6 +6,7 @@ const DeshBorad = () => {
     return (
 
         <div className="flex flex-col md:flex-row min-h-screen">
+            <title>onlinelearningplatform-dashboard</title>
             {/* Sidebar Section */}
             <aside className="w-full md:w-64 bg-gray-300 dark:bg-[#1D232A] dark:text-white p-5">
                 <h2 className="text-xl font-semibold mb-4">Dashboard</h2>
